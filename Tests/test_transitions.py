@@ -2,7 +2,7 @@ import allure
 from Pages.main_page import MainPage
 from Pages.order_page import OrderData
 from Locators.MainPageLocators import MainPageLocators
-import helpers as h
+import data as h
 
 
 class TestTransitions:

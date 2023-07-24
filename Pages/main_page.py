@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 from Locators.MainPageLocators import MainPageLocators
 from Pages.base_page import BasePage
-import helpers as h
+import data as h
 
 
 

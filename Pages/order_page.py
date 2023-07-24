@@ -4,7 +4,7 @@ from Locators.OrderLocators import OrderDataLocators
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 from Pages.base_page import BasePage
-import helpers as h
+import data as h
 
 
 class OrderData(BasePage):

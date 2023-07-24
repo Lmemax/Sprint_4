@@ -2,7 +2,7 @@ import allure
 import pytest
 from Pages.order_page import OrderData
 from Pages.main_page import MainPage
-import helpers as h
+import data as h
 
 
 class TestAddOrder:
