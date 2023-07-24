@@ -17,49 +17,20 @@ class MainPage(BasePage):
                              (MainPageLocators.CANCEL_QUESTION, h.answer6),
                              (MainPageLocators.TAKE_QUESTION, h.answer7)]
 
-    @allure.step('Ожидание загрузки главной страницы')
-    def wait_for_load_home_page(self):
-        """ожидание загрузки главной страницы"""
-        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located(MainPageLocators.TAKE_QUESTION))
 
-    @allure.step('Принять куки')
-    def add_cookies(self):
-        """Принять куки"""
-        self.driver.find_element(*MainPageLocators.BUTTON_COOKIES).click()
-
-
-    def entry(self):
+    def entry(self, url, locator):
         """шаг готовности к работе с сайтом"""
-        self.open_main_url(url=h.main_page)
-        self.wait_for_load_home_page()
-        self.add_cookies()
+        self.open_url(url)
+        self.wait_for_loading_page(*Ь)
+        self.click_on_element()
 
-    def order_button_header(self):
-        return self.driver.find_element(*MainPageLocators.BUTTON_HEADER_ORDER)
-
-    @allure.step('Нажать на кнопку Заказать в header главной страницы')
-    def click_order_button_header(self):
-        """Нажатие кнопки заказать в header страницы"""
-        self.order_button_header().click()
-
-    def order_button_finish(self):
-        return self.driver.find_element(*MainPageLocators.BUTTON_FINISH_ORDER)
-
-    @allure.step('Нажать на кнопку Заказать на главной странице')
-    def click_order_button_finish(self):
-        """Нажатие кнопки заказать внизу страницы"""
-        self.order_button_finish().click()
-
-    def logo_yandex(self):
-        return self.driver.find_element(*MainPageLocators.LOGO_YANDEX)
 
     @allure.step('Нажать на логотип Яндекса в header главной страницы')
     def click_logo_yandex(self):
         """Проверка перехода на сайт Яндекс"""
-        self.logo_yandex().click()
-        new_window = self.driver.window_handles[1]
-        self.driver.switch_to.window(new_window)
-        WebDriverWait(self.driver, 5).until(ec.url_to_be(h.yandex))
+        self.click_on_element()
+        self.open_new_window()
+        self.wait_for_load_new_page()
 
     @allure.step('Найти интересующий вопрос')
     def get_question(self, question_locator):
