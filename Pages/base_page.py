@@ -6,14 +6,14 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def open_url(self, url):
+    def open_test_web_url(self, url):
         self.driver.get(url)
 
     def find_element(self, locator):
         self.driver.find_element(*locator)
 
     def wait_for_loading_page(self, locator):
-        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located(*locator))
+        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located(locator))
 
     def wait_for_load_new_page(self, url):
         WebDriverWait(self.driver, 5).until(ec.url_to_be(url))

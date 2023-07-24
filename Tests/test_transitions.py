@@ -8,11 +8,11 @@ import data as h
 class TestTransitions:
 
     @allure.title('Проверка клика на логотип Яндекса c главной страницы')
-    @allure.description('На странице ищем логотип Яндекс и проверяем, что кликныв на него откроется новая вкладка Дзен')
-    def test_click_on_logo_yandex(self, driver):
+    @allure.description('На странице ищем логотип Яндекс и проверяем, что кликнув на него откроется новая вкладка Дзен')
+    def test_click_on_logo_yandex(self, driver, worker):
         """Проверка перехода на сайт Яндекс c главной страницы сайта Самокат"""
         page = MainPage(driver)
-        page.entry()
+        page.entry(worker[0], worker[1], worker[2])
         page.click_logo_yandex()
         assert driver.current_url == h.yandex
 

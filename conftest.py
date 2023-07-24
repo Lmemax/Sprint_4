@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from Locators.MainPageLocators import MainPageLocators
+import data as h
 
 
 @pytest.fixture(scope='function')  # при каждом новом тесте браузер перезапускается
@@ -11,3 +13,9 @@ def driver():
     driver.set_window_size(1920, 1080)
     yield driver
     driver.quit()
+
+
+@pytest.fixture
+def worker():
+    worker = [h.main_page, MainPageLocators.TAKE_QUESTION,MainPageLocators.BUTTON_COOKIES]
+    return worker

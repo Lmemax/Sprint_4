@@ -8,29 +8,20 @@ import data as h
 
 
 class MainPage(BasePage):
-    QUESTIONS_ANSWERS = [(MainPageLocators.PRICE_QUESTION, h.answer0),
-                             (MainPageLocators.QUANTITY_QUESTION, h.answer1),
-                             (MainPageLocators.RENT_QUESTION, h.answer2),
-                             (MainPageLocators.TODAY_ORDER, h.answer3),
-                             (MainPageLocators.PROLONGATION_QUESTION, h.answer4),
-                             (MainPageLocators.CHARGER_QUESTION, h.answer5),
-                             (MainPageLocators.CANCEL_QUESTION, h.answer6),
-                             (MainPageLocators.TAKE_QUESTION, h.answer7)]
 
-
-    def entry(self, url, locator):
+    def entry(self, url, wait, push):
         """шаг готовности к работе с сайтом"""
-        self.open_url(url)
-        self.wait_for_loading_page(*Ь)
-        self.click_on_element()
+        self.open_test_web_url(url)
+        self.wait_for_loading_page(wait)
+        self.click_on_element(push)
 
 
     @allure.step('Нажать на логотип Яндекса в header главной страницы')
     def click_logo_yandex(self):
         """Проверка перехода на сайт Яндекс"""
-        self.click_on_element()
+        self.click_on_element(MainPageLocators.LOGO_YANDEX)
         self.open_new_window()
-        self.wait_for_load_new_page()
+        self.wait_for_load_new_page(url=h.yandex)
 
     @allure.step('Найти интересующий вопрос')
     def get_question(self, question_locator):
