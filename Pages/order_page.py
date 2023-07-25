@@ -9,6 +9,11 @@ import data as h
 
 class OrderData(BasePage):
 
+    def transition(self, url, push):
+        self.open_test_web_url(url)
+        self.click_on_element(push)
+
+
     def order_click_on_button_header(self, name, surname, address, phone, date):
         """шаг по оформлению заказа при нажатии кнопки заказать в header"""
         self.input_name(name)

@@ -10,11 +10,9 @@ import data as h
 class MainPage(BasePage):
 
     def entry(self, url, wait, push):
-        """шаг готовности к работе с сайтом"""
         self.open_test_web_url(url)
         self.wait_for_loading_page(wait)
         self.click_on_element(push)
-
 
     @allure.step('Нажать на логотип Яндекса в header главной страницы')
     def click_logo_yandex(self):
@@ -28,15 +26,15 @@ class MainPage(BasePage):
         """Поиск вопроса"""
         element = self.driver.find_element(*question_locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
-        WebDriverWait(self.driver, 3).until(ec.element_to_be_clickable(question_locator))
-        self.driver.find_element(*question_locator).click()
+        self.waif_for_clickable(question_locator)
+        self.click_on_element(question_locator)
 
     @allure.step('Найти расскрытый вопрос с ответом на него')
     def find_not_hidden_answer(self):
         """Получение текста ответа на вопрос"""
-        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located(MainPageLocators.TAKE_QUESTION))
-        self.answer = self.driver.find_element(*MainPageLocators.OPEN_ANSWER).text
-        return self.answer
+        self.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
+        self.check_process(MainPageLocators.OPEN_ANSWER)
+        return self.check_process(MainPageLocators.OPEN_ANSWER)
 
     @allure.step('Получить расскрытый ответ')
     def compare_answer_expected_answer(self, expected_answer):

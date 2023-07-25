@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from Locators.MainPageLocators import MainPageLocators
+from Locators.OrderLocators import UserDataLocators
 import data as h
 
 
@@ -14,8 +15,12 @@ def driver():
     yield driver
     driver.quit()
 
+@pytest.fixture  # загрузка главной страницы с принятием куки
+def main():
+    main = [h.main_page, MainPageLocators.TAKE_QUESTION,MainPageLocators.BUTTON_COOKIES]
+    return main
 
 @pytest.fixture
-def worker():
-    worker = [h.main_page, MainPageLocators.TAKE_QUESTION,MainPageLocators.BUTTON_COOKIES]
-    return worker
+def order():  # данные для перехода со страницы заказа по клику на логотип сайта
+    order = [h.order_data, UserDataLocators.LOGO_SCOOTER,MainPageLocators.TAKE_QUESTION]
+    return order
