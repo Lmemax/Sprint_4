@@ -5,6 +5,7 @@ from Locators.MainPageLocators import MainPageLocators
 import data as h
 
 
+@allure.feature('Проверка перехода по клику на логотип')
 class TestTransitions:
 
     @allure.title('Проверка клика на логотип Яндекса c главной страницы')

@@ -4,7 +4,7 @@ from Pages.main_page import MainPage
 from Locators.MainPageLocators import MainPageLocators
 import data as h
 
-
+@allure.feature('Ответы на соответсвующие вопросы')
 class TestGetAnswer:
     QUESTIONS_ANSWERS = [(MainPageLocators.PRICE_QUESTION, h.answer0),
                          (MainPageLocators.QUANTITY_QUESTION, h.answer1),

@@ -28,6 +28,10 @@ class BasePage:
         new_window = self.driver.window_handles[1]
         self.driver.switch_to.window(new_window)
 
+    def scroll_to(self, question_locator):
+        element = self.driver.find_element(*question_locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
     def set_text_to_field(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)
 
