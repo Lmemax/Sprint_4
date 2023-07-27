@@ -1,3 +1,6 @@
+from Locators.OrderLocators import UserDataLocators
+from Locators.OrderLocators import OrderDataLocators
+
 # url для тестов
 main_page = 'https://qa-scooter.praktikum-services.ru/'
 yandex = 'https://dzen.ru/?yredirect=true'
@@ -14,5 +17,7 @@ answer6 = 'Да, пока самокат не привезли. Штрафа н�
 answer7 = 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
 
 # данные пользователя для ввода при оформлении заказа
-user_data = [('Иван', 'Иванов', 'Москва, ул.Спартаковская дом 3, кв.15', '84955555555', '24.07.2023'),
-             ('Петр', 'Сидоров', 'Москва, проезд Гагарина, д.9,20', '74997777777', '01.08.2023')]
+user_data = [('Иван', 'Иванов', 'Москва, ул.Спартаковская дом 3, кв.15', UserDataLocators.UNDEGROUND_STATION_1,
+              '84955555555', '24.07.2023', OrderDataLocators.RENT_PERIOD_1_DAY, OrderDataLocators.COLOR_CHOICE_BLACK),
+             ('Петр', 'Сидоров', 'Москва, проезд Гагарина, д.9,20', UserDataLocators.UNDEGROUND_STATION_2,
+              '74997777777', '01.08.2023', OrderDataLocators.RENT_PERIOD_5_DAYS, OrderDataLocators.COLOR_CHOICE_GREY)]
