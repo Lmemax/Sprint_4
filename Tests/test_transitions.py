@@ -2,6 +2,7 @@ import allure
 from Pages.main_page import MainPage
 from Pages.order_page import OrderData
 from Locators.MainPageLocators import MainPageLocators
+from Locators.OrderLocators import UserDataLocators
 import data as h
 
 
@@ -23,6 +24,7 @@ class TestTransitions:
     def test_click_on_logo_scooter(self, driver):
         """Проверка перехода по клику на логотип сайта Самокат"""
         page = OrderData(driver)
-        page.transition()
+        page.open_test_web_url(h.order_data)
+        page.click_on_element(UserDataLocators.LOGO_SCOOTER)
         page.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
         assert driver.current_url == h.main_page and driver.find_element(*MainPageLocators.TAKE_QUESTION).is_displayed()
