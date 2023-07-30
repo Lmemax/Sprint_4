@@ -14,13 +14,3 @@ def driver():
     driver.set_window_size(1920, 1080)
     yield driver
     driver.quit()
-
-@pytest.fixture  # загрузка главной страницы с принятием куки
-def main():
-    main = [h.main_page, MainPageLocators.TAKE_QUESTION,MainPageLocators.BUTTON_COOKIES]
-    return main
-
-@pytest.fixture
-def order():  # данные для перехода со страницы заказа по клику на логотип сайта
-    order = [h.order_data, UserDataLocators.LOGO_SCOOTER,MainPageLocators.TAKE_QUESTION]
-    return order

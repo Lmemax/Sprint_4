@@ -9,9 +9,9 @@ import data as h
 
 class OrderData(BasePage):
 
-    def transition(self, url, push):
-        self.open_test_web_url(url)
-        self.click_on_element(push)
+    def transition(self):
+        self.open_test_web_url(h.order_data)
+        self.click_on_element( UserDataLocators.LOGO_SCOOTER)
 
     def  choose_rent_period(self):
         self.click_on_element(OrderDataLocators.RENT_CLICK)

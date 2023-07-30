@@ -9,10 +9,22 @@ import data as h
 
 class MainPage(BasePage):
 
-    def entry(self, url, wait, push):
-        self.open_test_web_url(url)
-        self.wait_for_loading_page(wait)
-        self.click_on_element(push)
+    @allure.step('Ожидание загрузки главной страницы')
+    def entry(self):
+        self.open_test_web_url(h.main_page)
+        self.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
+
+    @allure.step('Принять куки')
+    def add_cookies(self):
+        self.click_on_element(MainPageLocators.BUTTON_COOKIES)
+
+    @allure.step('Нажать на кнопку Заказать в header главной страницы')
+    def click_order_button_header(self):
+        self.click_on_element(MainPageLocators.BUTTON_HEADER_ORDER)
+
+    @allure.step('Нажать на кнопку Заказать на главной страницы')
+    def click_order_button_on_page(self):
+        self.click_on_element(MainPageLocators.BUTTON_FINISH_ORDER)
 
     @allure.step('Нажать на логотип Яндекса в header главной страницы')
     def click_logo_yandex(self):
@@ -31,7 +43,7 @@ class MainPage(BasePage):
     def find_not_hidden_answer(self):
         """Получение текста ответа на вопрос"""
         self.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
-        self.check_process(MainPageLocators.OPEN_ANSWER)
+        self.get_text(MainPageLocators.OPEN_ANSWER)
         return self.get_text(MainPageLocators.OPEN_ANSWER)
 
     @allure.step('Получить расскрытый ответ')

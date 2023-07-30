@@ -18,9 +18,10 @@ class TestGetAnswer:
     @allure.title('Выпадающий список «Вопросы о важном»')
     @allure.description('Проверка,что при клике на вопрос открывается соответствующий ответ')
     @pytest.mark.parametrize('question_locator, expected_answer', QUESTIONS_ANSWERS)
-    def test_compare_answer_to_expected_answer(self, driver, main, question_locator, expected_answer):
+    def test_compare_answer_to_expected_answer(self, driver, question_locator, expected_answer):
         page = MainPage(driver)
-        page.entry(main[0], main[1], main[2])
+        page.entry()
+        page.add_cookies()
         page.get_question(question_locator)
         page.compare_answer_expected_answer(expected_answer)
         assert expected_answer == expected_answer
