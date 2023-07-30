@@ -33,6 +33,6 @@ class BasePage:
     def set_text_to_field(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)
 
-    def check_process(self, locator):
+    def get_text(self, locator):
         text = self.driver.find_element(*locator).text
         return text

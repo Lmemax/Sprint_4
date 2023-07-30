@@ -21,8 +21,8 @@ class TestAddOrder:
         page = OrderData(driver)
         page.order_click_on_button_for_order(name, surname,
                                              address, undeground, phone, date, period, color)
-        assert 'Заказ оформлен' in page.check_process(OrderDataLocators.MAKED_ORDER_WINDOW), 'Нет подтверждения, что' \
-                                                                                             ' заказ оформлен.'
+        assert 'Заказ оформлен' in page.get_text(OrderDataLocators.MAKED_ORDER_WINDOW), 'Нет подтверждения, что заказ' \
+                                                                                        'оформлен.'
 
     @allure.title('Оформление заказа при нажатии кнопки на главной странице')
     @allure.description('Проверка открытия, заполнения данных для заказа самоката и информации о успешном заказе')
@@ -35,5 +35,5 @@ class TestAddOrder:
         page = OrderData(driver)
         page.order_click_on_button_for_order(name, surname,
                                              address, undeground, phone, date, period, color)
-        assert 'Заказ оформлен' in page.check_process(OrderDataLocators.MAKED_ORDER_WINDOW), 'Нет подтверждения, что' \
-                                                                                             ' заказ оформлен.'
+        assert 'Заказ оформлен' in page.get_text(OrderDataLocators.MAKED_ORDER_WINDOW), 'Нет подтверждения, что заказ' \
+                                                                                        'оформлен.'

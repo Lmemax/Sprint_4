@@ -31,4 +31,4 @@ class OrderData(BasePage):
         self.click_on_element(color)
         self.click_on_element(OrderDataLocators.MAKE_ORDER_BUTTON)
         self.click_on_element(OrderDataLocators.YES_ORDER_BUTTON)
-        self.check_process(OrderDataLocators.MAKED_ORDER_WINDOW)
+        self.get_text(OrderDataLocators.MAKED_ORDER_WINDOW)

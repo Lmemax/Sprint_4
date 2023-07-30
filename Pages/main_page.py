@@ -32,7 +32,7 @@ class MainPage(BasePage):
         """Получение текста ответа на вопрос"""
         self.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
         self.check_process(MainPageLocators.OPEN_ANSWER)
-        return self.check_process(MainPageLocators.OPEN_ANSWER)
+        return self.get_text(MainPageLocators.OPEN_ANSWER)
 
     @allure.step('Получить расскрытый ответ')
     def compare_answer_expected_answer(self, expected_answer):
