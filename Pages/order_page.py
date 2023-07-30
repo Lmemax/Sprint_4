@@ -12,8 +12,8 @@ class OrderData(BasePage):
     def transition(self, url, push):
         self.open_test_web_url(url)
         self.click_on_element(push)
+
     def  choose_rent_period(self):
-        """Выбор периода аренды 1"""
         self.click_on_element(OrderDataLocators.RENT_CLICK)
         self.click_on_element(OrderDataLocators.RENT_PERIOD_INPUT)
 
