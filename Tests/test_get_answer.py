@@ -23,5 +23,5 @@ class TestGetAnswer:
         page.entry()
         page.add_cookies()
         page.get_question(question_locator)
-        page.compare_answer_expected_answer(expected_answer)
-        assert expected_answer == expected_answer
+        page.find_not_hidden_answer()
+        assert page.find_not_hidden_answer() == expected_answer

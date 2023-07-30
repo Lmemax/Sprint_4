@@ -43,9 +43,4 @@ class MainPage(BasePage):
     def find_not_hidden_answer(self):
         """Получение текста ответа на вопрос"""
         self.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
-        self.get_text(MainPageLocators.OPEN_ANSWER)
         return self.get_text(MainPageLocators.OPEN_ANSWER)
-
-    @allure.step('Получить расскрытый ответ')
-    def compare_answer_expected_answer(self, expected_answer):
-        self.find_not_hidden_answer()
