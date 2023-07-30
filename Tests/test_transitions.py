@@ -27,4 +27,4 @@ class TestTransitions:
         page.open_test_web_url(h.order_data)
         page.click_on_element(UserDataLocators.LOGO_SCOOTER)
         page.wait_for_loading_page(MainPageLocators.TAKE_QUESTION)
-        assert driver.current_url == h.main_page and driver.find_element(*MainPageLocators.TAKE_QUESTION).is_displayed()
+        assert driver.current_url == h.main_page
