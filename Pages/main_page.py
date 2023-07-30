@@ -25,7 +25,6 @@ class MainPage(BasePage):
     def get_question(self, question_locator):
         """Поиск вопроса"""
         self.scroll_to(question_locator)
-        self.waif_for_clickable(question_locator)
         self.click_on_element(question_locator)
 
     @allure.step('Найти расскрытый вопрос с ответом на него')

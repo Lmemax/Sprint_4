@@ -18,10 +18,8 @@ class BasePage:
     def wait_for_load_new_page(self, url):
         WebDriverWait(self.driver, 5).until(ec.url_to_be(url))
 
-    def waif_for_clickable(self, locator):
-        WebDriverWait(self.driver, 3).until(ec.element_to_be_clickable(locator))
-
     def click_on_element(self, locator):
+        WebDriverWait(self.driver, 3).until(ec.element_to_be_clickable(locator))
         self.driver.find_element(*locator).click()
 
     def open_new_window(self):
