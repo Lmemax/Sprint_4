@@ -9,10 +9,12 @@ import data as h
 
 class OrderData(BasePage):
 
+    @allure.step('Выбор срока аренды')
     def  choose_rent_period(self):
         self.click_on_element(OrderDataLocators.RENT_CLICK)
         self.click_on_element(OrderDataLocators.RENT_PERIOD_INPUT)
 
+    @allure.step('Оформление заказа, заполнение данных заказчика и параметров заказа')
     def order_click_on_button_for_order(self, name, surname, address, undeground, phone, date, period, color):
         self.set_text_to_field(UserDataLocators.NAME_INPUT,name)
         self.set_text_to_field(UserDataLocators.SURNAME_INPUT,surname)
